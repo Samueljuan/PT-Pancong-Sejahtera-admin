@@ -1,8 +1,12 @@
+<?
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-   <title>PSIKOLOGI</title>
+   <title>PT. PANCONG SEJAHTERA</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,8 +24,11 @@
 </head>
 
 <body>
+   <?php
+   if (isset($_SESSION["usersStatus"])) {
+   ?>
       <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
-         <!-- <?php echo "<a class='navbar-brand' href='#'>Selamat Datang " . $_SESSION["useruid"] . " !</a>"; ?> -->
+         <?php echo "<a class='navbar-brand' href='#'>Selamat Datang " . $_SESSION["usersStatus"] . " !</a>"; ?>
          <form class="form-inline my-2 my-lg-0 ml-auto">
          </form>
          <!-- tolltip: Semacam tulisan kalo di hover -->
@@ -40,56 +47,80 @@
             </h5>
          </div>
       </nav>
-         <!-- no-gutters agar tidak ada jarak antar grid -->
-         <div class="row no-gutters mt-5">
-            <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
-               <ul class="nav flex-column ml-3">
-                  <?php
-                  if ($_SESSION["usersStatus"] == 'gudang'){
-                  ?>
+      <!-- no-gutters agar tidak ada jarak antar grid -->
+      <div class="row no-gutters mt-5">
+         <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
+            <ul class="nav flex-column ml-3">
+               <?php
+               if ($_SESSION["usersStatus"] == 'gudang') {
+               ?>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-chart-line mr-2"></i>Dashboard</a>
-                     <hr class="bg-secondary">
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link active text-white" href="profile.php"><i class="far fa-id-card mr-2"></i>Profile</a>
+                     <a class="nav-link active text-white" href="gudang_masuk.php"><i class="fas fa-chart-line mr-2"></i>Barang Masuk</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-white" href="file.php"><i class="fas fa-mail-bulk mr-2"></i>File</a>
+                     <a class="nav-link active text-white" href="gudang_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-white" href="penunjang.php"><i class="fas fa-comment-dots mr-2"></i>Penunjang lainnya </a>
+                     <a class="nav-link active text-white" href="gudang_keluar.php"><i class="fas fa-chart-line mr-2"></i>Barang Keluar</a>
                      <hr class="bg-secondary">
                   </li>
-                  <?php
-                  } else if ($_SESSION["usersStatus"] == 'resepsionis') {
-                  ?>
-                     <li class="nav-item">
-                     <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-chart-line mr-2"></i>Dashboard</a>
-                     <hr class="bg-secondary">
-                  </li>
-                  <?php
-                  } else{
-                  ?>
+               <?php
+               } else if ($_SESSION["usersStatus"] == 'resepsionis') {
+               ?>
                   <li class="nav-item">
-                     <a class="nav-link text-white" href="penunjang.php"><i class="fas fa-comment-dots mr-2"></i>Penunjang lainnya </a>
+                     <a class="nav-link active text-white" href="resep_masuk.php"><i class="fas fa-chart-line mr-2"></i>Barang Masuk</a>
                      <hr class="bg-secondary">
                   </li>
-                  <?php
-                  }
-                  ?>
-
-               </ul>
-            </div>
-      <p></p>
-      <script src="js/jquery.min.js"></script>
-      <script src="js/js/bootstrap.min.js"></script>
-      <script src="js/jquery-migrate-3.0.1.min.js"></script>
-      <script src="js/jquery.stellar.min.js"></script>
-      <script src="js/scrollax.min.js"></script>
-      <script src="js/main.js"></script>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="resep_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="resep_keluar.php"><i class="fas fa-chart-line mr-2"></i>Barang Keluar</a>
+                     <hr class="bg-secondary">
+                  </li>
+               <?php
+               } else if ($_SESSION["usersStatus"] == 'admin') {
+               ?>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_daftar_gudang.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang Gudang</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_daftar_resep.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang Resepsionis</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_barang.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang </a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_karyawan.php"><i class="fas fa-chart-line mr-2"></i>List Karyawan</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Karyawan</a>
+                     <hr class="bg-secondary">
+                  </li>                  
+               <?php
+               }
+               ?>
+            </ul>
+         </div>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+         <script src="js/jquery.min.js"></script>
+         <script src="js/js/bootstrap.min.js"></script>
+         <script src="js/jquery-migrate-3.0.1.min.js"></script>
+         <script src="js/jquery.stellar.min.js"></script>
+         <script src="js/scrollax.min.js"></script>
+         <script src="js/main.js"></script>
+      <?php
+   } else {
+      header("location: index.php");
+   }
+      ?>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ session_start();
 <html>
 
 <head>
-   <title>PSIKOLOGI</title>
+   <title>PT. PANCONG SEJAHTERA</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -67,7 +67,6 @@ session_start();
 
          <button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
          <button type="reset" class="btn btn-danger">RESET</button>
-         <a href="reset-password.php" class="href">Lupa Password?</a>
       </form>
    </div>
 

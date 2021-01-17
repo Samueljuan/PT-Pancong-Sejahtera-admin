@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +9,10 @@
 </head>
 
 <body>
-
+<?php
+   include_once 'header.php';
+   include_once 'includes/database.php';
+   ?>
    <div class="col-md-10 p-5 pt-2">
       <h3><i class="fas fa-users mr-2"></i> DAFTAR DOSEN</h3>
       <hr>
@@ -43,8 +50,7 @@
       }
       ?>
 
-      <form class="pt-3 bg-white" method="POST" action="includes/signup.inc.php">
-         <hr class="mt-5 mb-5">
+      <form class="pt-3 bg-white" method="POST" action="includes/signup_master.inc.php">
          <div class="row form-group">
             <div class="col-md-12">
                <label class="text-black" for=""><strong>Daftar Sebagai</strong></label>
