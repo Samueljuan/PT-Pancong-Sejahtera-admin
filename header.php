@@ -35,15 +35,42 @@ session_start();
 
          <div class="icon ml-4">
             <h5>
-               <a href="https://www.gmail.com" target="_blank">
-                  <i class="fa-1x fas fa-envelope-open-text btn" title="Surat Masuk"></i>
-               </a>
-               <a href="https://www.gmail.com" target="_blank">
-                  <i class="fa-1x fas fa-bell btn" title="Notifikasi"></i>
-               </a>
-               <a href="includes/logout.inc.php">
-                  <i class="fa-1x fas fa-sign-out-alt btn" title="Keluar"></i>
-               </a>
+               <?php
+               if ($_SESSION["usersStatus"] == 'admin') {
+               ?>
+                  <a href="https://www.gmail.com" target="_blank">
+                     <i class="fa-1x fas fa-envelope-open-text btn" title="Surat Masuk"></i>
+                  </a>
+                  <a href="https://www.gmail.com" target="_blank">
+                     <i class="fa-1x fas fa-bell btn" title="Panggil "></i>
+                  </a>
+                  <a href="includes/logout.inc.php">
+                     <i class="fa-1x fas fa-sign-out-alt btn" title="Keluar"></i>
+                  </a>
+               <?php
+               } else if ($_SESSION["usersStatus"] == 'resepsionis') {
+               ?>
+                  <a href="https://www.gmail.com" target="_blank">
+                     <i class="fa-1x fas fa-bell btn" title="Panggil"></i>
+                  </a>
+                  <a href="includes/logout.inc.php">
+                     <i class="fa-1x fas fa-sign-out-alt btn" title="Keluar"></i>
+                  </a>
+               <?php
+               } else if ($_SESSION["usersStatus"] == 'gudang') {
+               ?>
+                  <a href="includes/logout.inc.php">
+                     <i class="fa-1x fas fa-sign-out-alt btn" title="Keluar"></i>
+                  </a>
+               <?php
+               } else if ($_SESSION["usersStatus"] == 'lapangan') {
+               ?>
+                  <a href="includes/logout.inc.php">
+                     <i class="fa-1x fas fa-sign-out-alt btn" title="Keluar"></i>
+                  </a>
+               <?php
+               }
+               ?>
             </h5>
          </div>
       </nav>
@@ -55,45 +82,49 @@ session_start();
                if ($_SESSION["usersStatus"] == 'gudang') {
                ?>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="gudang_masuk.php"><i class="fas fa-chart-line mr-2"></i>Barang Masuk</a>
+                     <a class="nav-link active text-white" href="gudang_masuk.php"><i class="fas fa-people-carry mr-2"></i>Barang Masuk</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="gudang_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang</a>
+                     <a class="nav-link active text-white" href="gudang_daftar.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="gudang_keluar.php"><i class="fas fa-chart-line mr-2"></i>Barang Keluar</a>
+                     <a class="nav-link active text-white" href="gudang_keluar.php"><i class="fas fa-truck-loading mr-2"></i>Barang Keluar</a>
                      <hr class="bg-secondary">
                   </li>
                <?php
                } else if ($_SESSION["usersStatus"] == 'resepsionis') {
                ?>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="resep_masuk.php"><i class="fas fa-chart-line mr-2"></i>Barang Masuk</a>
+                     <a class="nav-link active text-white" href="resep_masuk.php"><i class="fas fa-people-carry mr-2"></i>Barang Masuk</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="resep_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang</a>
+                     <a class="nav-link active text-white" href="resep_daftar.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="resep_keluar.php"><i class="fas fa-chart-line mr-2"></i>Barang Keluar</a>
+                     <a class="nav-link active text-white" href="resep_keluar.php"><i class="fas fa-truck-loading mr-2"></i>Barang Keluar</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="resep_hitung.php"><i class="fas fa-chart-line mr-2"></i>Hitung Harga</a>
                      <hr class="bg-secondary">
                   </li>
                <?php
                } else if ($_SESSION["usersStatus"] == 'admin') {
                ?>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="admin_daftar_gudang.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang Gudang</a>
+                     <a class="nav-link active text-white" href="admin_daftar_gudang.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang Gudang</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="admin_daftar_resep.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang Resepsionis</a>
+                     <a class="nav-link active text-white" href="admin_daftar_resep.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang Resepsionis</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="admin_barang.php"><i class="fas fa-chart-line mr-2"></i>Daftar Barang </a>
+                     <a class="nav-link active text-white" href="admin_barang.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang </a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
@@ -103,7 +134,26 @@ session_start();
                   <li class="nav-item">
                      <a class="nav-link active text-white" href="admin_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Karyawan</a>
                      <hr class="bg-secondary">
-                  </li>                  
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_daftar master.php"><i class="fas fa-chart-line mr-2"></i>Daftar Master</a>
+                     <hr class="bg-secondary">
+                  </li>
+               <?php
+               } else if ($_SESSION["usersStatus"] == 'lapangan') {
+               ?>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="lapangan_daftar.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="lapangan_diambil.php"><i class="fas fa-people-carry mr-2"></i>Barang Diambil</a>
+                     <hr class="bg-secondary">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="lapangan_barang.php"><i class="fas fa-people-carry mr-2"></i>Daftar Barang Diambil</a>
+                     <hr class="bg-secondary">
+                  </li>
                <?php
                }
                ?>

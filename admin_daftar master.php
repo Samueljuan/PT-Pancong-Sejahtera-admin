@@ -54,14 +54,8 @@ session_start();
          <div class="row form-group">
             <div class="col-md-12">
                <label class="text-black" for=""><strong>Daftar Sebagai</strong></label>
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="signup-as" id="" value="gudang">
-                  <label class="form-check-label" for="inlineRadio1">gudang</label>
-               </div>
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="signup-as" id="" value="resepsionis">
-                  <label class="form-check-label" for="inlineRadio2">resepsionis</label>
-               </div>
+               <input type="text" name="signup-as" placeholder="Daftar Sebagai..." class="form-control"  required name="Daftar Sebagai">
+
             </div>
          </div>
 

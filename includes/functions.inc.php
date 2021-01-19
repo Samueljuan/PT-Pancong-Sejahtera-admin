@@ -1,7 +1,6 @@
 <?php
 
 function invalidUid($username){
-   $result;
    if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
       $result = true;
    }
@@ -12,7 +11,6 @@ function invalidUid($username){
 }
 
 function pwdMatch($pwd, $pwdRepeat){
-   $result;
    if ($pwd !== $pwdRepeat){
       $result = true;
    }
@@ -91,7 +89,7 @@ function createUserMaster($conn, $status, $username, $pwd){
    $sql = "INSERT INTO users(UsersStatus, usersUid, usersPwd) VALUES (?, ?, ?);";
    $stmt= mysqli_stmt_init($conn);
    if (!mysqli_stmt_prepare($stmt, $sql)){
-      header ("location: ../daftar.php?error=stmtfailed");
+      header ("location: ../admin_daftar master.php?error=stmtfailed");
       exit();
    }
 
@@ -100,12 +98,11 @@ function createUserMaster($conn, $status, $username, $pwd){
    mysqli_stmt_bind_param($stmt, "sss", $status, $username, $hasedPwd);
    mysqli_stmt_execute($stmt);
    mysqli_stmt_close($stmt);
-   header ("location: ../daftar.php?error=none");
+   header ("location: ../admin_daftar master.php?error=none");
    exit();
 }
 
 function emptyInputLogin($username, $pwd){
-   $result;
    if (empty ($username)|| empty ($pwd)){
       $result = true;
    }
@@ -142,6 +139,8 @@ function loginUser($conn, $username, $pwd){
          header ("location: ../resep_masuk.php");
       } else if ($_SESSION["usersStatus"] == 'admin') {
          header ("location: ../resep_masuk.php");
+      } else if ($_SESSION["usersStatus"] == 'lapangan') {
+         header ("location: ../lapangan_daftar.php");
       }
       exit();
    }

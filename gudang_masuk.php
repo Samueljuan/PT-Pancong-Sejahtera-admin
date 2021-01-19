@@ -57,12 +57,12 @@ session_start();
                <input type="date" name="jatuhTempo" placeholder="Jatuh Tempo..." class="form-control" required name="jatuhTempo">
             </div>
          </div>
-         <div class="row form-group">
-            <div class="col-md-12">
-               <label class="text-black" for=""><strong>ID Pegawai</strong></label>
-               <input type="text" name="idPegawai" placeholder="Id Pegawai..." class="form-control" required name="idPegawai">
+            <div class="row form-group">
+               <div class="col-md-12">
+                  <label class="text-black" for=""><strong>ID Pegawai</strong></label>
+                  <input type="text" name="idPegawai" placeholder="Id Pegawai..." class="form-control" required name="idPegawai">
+               </div>
             </div>
-         </div>
          <div class="row form-group">
             <div class="col-md-12">
                <label class="text-black" for=""><strong>Kode Gudang</strong></label>

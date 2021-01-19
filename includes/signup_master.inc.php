@@ -18,5 +18,5 @@ if (isset($_POST["submit"])) {
 
    createUserMaster($conn,  $status, $username, $pwd);
 } else {
-   header("location: ../daftar.php");
+   header("location: ../admin_daftar master.php");
 }
