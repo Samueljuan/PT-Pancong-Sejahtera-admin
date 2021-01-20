@@ -15,7 +15,7 @@ session_start();
    RIGHT JOIN resepsionis_barang ON resepsionis_masuk.idPelanggan = resepsionis_barang.idPelanggan");
    ?>
    <div class="col-md-10 p-5 pt-2">
-      <h3><i class="fas fa-users mr-2"></i> DAFTAR BARANG</h3>
+      <h3><i class="fas fa-boxes mr-2"></i> DAFTAR BARANG RESEPSIONIS</h3>
       <hr>
       <table class="table table-hover text-center">
          <thead>

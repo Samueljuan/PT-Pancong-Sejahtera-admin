@@ -14,7 +14,7 @@ session_start();
    include_once 'includes/database.php';
    ?>
    <div class="col-md-10 p-5 pt-2">
-      <h3><i class="fas fa-users mr-2"></i> DAFTAR DOSEN</h3>
+      <h3><i class="fas fa-users mr-2"></i> DAFTAR AKUN</h3>
       <hr>
       <?php
       if (isset($_GET["error"])) {

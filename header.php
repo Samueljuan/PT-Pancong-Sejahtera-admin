@@ -3,6 +3,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <html>
 
 <head>
@@ -82,7 +83,7 @@ session_start();
                if ($_SESSION["usersStatus"] == 'gudang') {
                ?>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="gudang_masuk.php"><i class="fas fa-people-carry mr-2"></i>Barang Masuk</a>
+                     <a class="nav-link active text-white" href="gudang_masuk.php"><i class="fas fa-box-open mr-2"></i>Barang Masuk</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
@@ -93,11 +94,15 @@ session_start();
                      <a class="nav-link active text-white" href="gudang_keluar.php"><i class="fas fa-truck-loading mr-2"></i>Barang Keluar</a>
                      <hr class="bg-secondary">
                   </li>
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="gudang_sementara.php"><i class="fas fa-list mr-2"></i>Barang Sementara</a>
+                     <hr class="bg-secondary">
+                  </li>
                <?php
                } else if ($_SESSION["usersStatus"] == 'resepsionis') {
                ?>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="resep_masuk.php"><i class="fas fa-people-carry mr-2"></i>Barang Masuk</a>
+                     <a class="nav-link active text-white" href="resep_masuk.php"><i class="fas fa-box-open mr-2"></i>Barang Masuk</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
@@ -109,34 +114,62 @@ session_start();
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="resep_hitung.php"><i class="fas fa-chart-line mr-2"></i>Hitung Harga</a>
+                     <a class="nav-link active text-white" href="resep_hitung.php"><i class="fas fa-calculator mr-2"></i>Hitung Harga</a>
                      <hr class="bg-secondary">
                   </li>
                <?php
                } else if ($_SESSION["usersStatus"] == 'admin') {
                ?>
-                  <li class="nav-item">
+                  <div class="dropdown">
+                     <button class="m-auto btn bg-secondary text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-boxes mr-2 p-auto"></i>Daftar Masuk
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-dark bg-secondary" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item " href="admin_daftar_gudang.php">Daftar Barang Gudang</a></li>
+                        <li><a class="dropdown-item" href="admin_daftar_resep.php">Daftar Barang Resepsionis</a></li>
+                        <li><a class="dropdown-item" href="admin_barang.php">Daftar Barang</a></li>
+                        <li><a class="dropdown-item" href="admin_daftar_lapangan.php">Daftar Barang Lapangan</a></li>
+                     </ul>
+                     <hr class="bg-secondary">
+                  </div>
+
+                  <div class="dropdown">
+                     <button class="m-auto btn bg-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-boxes mr-2 p-auto"></i>Daftar Keluar
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-dark bg-secondary" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item " href="admin_daftar_gudang.php">Daftar Barang Gudang</a></li>
+                        <li><a class="dropdown-item" href="admin_daftar_resep.php">Daftar Barang Resepsionis</a></li>
+                        <li><a class="dropdown-item" href="admin_barang.php">Daftar Barang</a></li>
+                     </ul>
+                     <hr class="bg-secondary">
+                  </div>
+                  <!-- <li class="nav-item">
                      <a class="nav-link active text-white" href="admin_daftar_gudang.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang Gudang</a>
                      <hr class="bg-secondary">
-                  </li>
-                  <li class="nav-item">
+                  </li> -->
+                  <!-- <li class="nav-item">
                      <a class="nav-link active text-white" href="admin_daftar_resep.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang Resepsionis</a>
                      <hr class="bg-secondary">
-                  </li>
-                  <li class="nav-item">
+                  </li> -->
+                  <!-- <li class="nav-item">
                      <a class="nav-link active text-white" href="admin_barang.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang </a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="admin_karyawan.php"><i class="fas fa-chart-line mr-2"></i>List Karyawan</a>
+                     <a class="nav-link active text-white" href="admin_daftar_lapangan.php"><i class="fas fa-boxes mr-2"></i>Daftar Barang Lapangan </a>
+                     <hr class="bg-secondary">
+                  </li> -->
+                  <li class="nav-item">
+                     <a class="nav-link active text-white" href="admin_barang-sementara.php"><i class="fas fa-list mr-2"></i>Daftar Barang Sementara</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="admin_daftar.php"><i class="fas fa-chart-line mr-2"></i>Daftar Karyawan</a>
+                     <a class="nav-link active text-white" href="admin_karyawan.php"><i class="fas fa-users mr-2"></i>List Karyawan</a>
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="admin_daftar master.php"><i class="fas fa-chart-line mr-2"></i>Daftar Master</a>
+                     <a class="nav-link active text-white" href="admin_daftar.php"><i class="fas fa-user-plus mr-2"></i>Daftar Karyawan</a>
                      <hr class="bg-secondary">
                   </li>
                <?php
@@ -151,7 +184,7 @@ session_start();
                      <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active text-white" href="lapangan_barang.php"><i class="fas fa-people-carry mr-2"></i>Daftar Barang Diambil</a>
+                     <a class="nav-link active text-white" href="lapangan_barang.php"><i class="fas fa-truck-loading mr-2"></i>Daftar Barang Diambil</a>
                      <hr class="bg-secondary">
                   </li>
                <?php

@@ -13,7 +13,7 @@ session_start();
    $result = mysqli_query($conn, "SELECT * FROM kategori");
    ?>
    <div class="col-md-10 p-5 pt-2">
-      <h3><i class="fas fa-users mr-2"></i> DAFTAR BARANG MASUK</h3>
+      <h3><i class="fas fa-box-open mr-2"></i> DAFTAR BARANG MASUK</h3>
       <hr>
       <?php
       if (isset($_GET["error"])) {
@@ -24,6 +24,14 @@ session_start();
          } else if ($_GET["error"] == "stmtfailed") {
             echo "<div class='alert alert-danger' role='alert'>
                   Ada yang Salah! Coba Lagi!
+                </div>";
+         } else if ($_GET["error"] == "nikExists") {
+            echo "<div class='alert alert-danger' role='alert'>
+                  Pelanggan Telah Melakukan Pegadaian Sebelumnya!
+                </div>";
+         } else if ($_GET["error"] == "kodeKatBarangExists") {
+            echo "<div class='alert alert-danger' role='alert'>
+                  Kode Barang Salah!
                 </div>";
          }
       }
@@ -79,12 +87,12 @@ session_start();
                <input type="text" name="IDbarang" placeholder="ID Barang..." class="form-control" required name="IDbarang">
             </div>
          </div>
-         <!-- <div class="row form-group">
+         <div class="row form-group">
             <div class="col-md-12">
                <label class="text-black" for=""><strong>Kode Barang</strong></label>
                <input type="text" name="kodeBarang" placeholder="Kode Barang.." class="form-control" required name="kodeBarang">
             </div>
-         </div> -->
+         </div>
 
          <!-- <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">

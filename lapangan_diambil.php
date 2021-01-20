@@ -13,7 +13,7 @@ session_start();
    $result = mysqli_query($conn, "SELECT * FROM kategori");
    ?>
    <div class="col-md-10 p-5 pt-2">
-      <h3><i class="fas fa-users mr-2"></i> PENGAMBILAN BARANG</h3>
+      <h3><i class="fas fa-people-carry mr-2"></i> PENGAMBILAN BARANG</h3>
       <hr>
       <?php
       if (isset($_GET["error"])) {

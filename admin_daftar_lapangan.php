@@ -13,7 +13,7 @@ session_start();
    $result = mysqli_query($conn, "SELECT * FROM lapangan_diambil");
    ?>
    <div class="col-md-10 p-5 pt-2">
-      <h3><i class="fas fa-truck-loading mr-2"></i> DAFTAR BARANG DIAMBIL</h3>
+      <h3><i class="fas fa-boxes mr-2"></i> DAFTAR BARANG LAPANGAN</h3>
       <hr>
       <table class="table table-hover text-center">
          <thead>

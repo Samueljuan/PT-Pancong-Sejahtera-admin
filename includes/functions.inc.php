@@ -138,58 +138,10 @@ function loginUser($conn, $username, $pwd){
       } else if ($_SESSION["usersStatus"] == 'resepsionis') {
          header ("location: ../resep_masuk.php");
       } else if ($_SESSION["usersStatus"] == 'admin') {
-         header ("location: ../resep_masuk.php");
+         header ("location: ../admin_daftar_gudang.php");
       } else if ($_SESSION["usersStatus"] == 'lapangan') {
          header ("location: ../lapangan_daftar.php");
       }
       exit();
    }
-}
-
-function nikExists($conn, $nik){
-
-   $sql = "SELECT * FROM users WHERE usersId = ? OR usersEmail = ?;";
-   $stmt = mysqli_stmt_init($conn);
-   if (!mysqli_stmt_prepare($stmt, $sql)){
-      header ("location: ../daftar.php?error=stmtfailed");
-      exit();
-   }
-
-   mysqli_stmt_bind_param($stmt, "i", $nik); 
-   mysqli_stmt_execute($stmt);
-
-   $resultData= mysqli_stmt_get_result($stmt);
-
-   if ($row = mysqli_fetch_assoc($resultData)){
-      return $row;
-   }
-   else{
-      $result=false;
-      return $result;
-   }
-
-   mysqli_stmt_close($stmt);
-}
-
-function delete($conn, $nik){
-   $sql= "DELETE FROM users WHERE usersId=$nik;";
-   $stmt= mysqli_query($conn, $sql);
-   header("Location: ../delete.php");
-}
-
-function changePassword($conn, $name, $email, $nik, $status, $username, $pwd){
-   $sql = "INSERT INTO users(usersName, usersEmail, usersId, UsersStatus, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?, ?);";
-   $stmt= mysqli_stmt_init($conn);
-   if (!mysqli_stmt_prepare($stmt, $sql)){
-      header ("location: ../daftar.php?error=stmtfailed");
-      exit();
-   }
-
-   $hasedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-
-   mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $nik, $status, $username, $hasedPwd);
-   mysqli_stmt_execute($stmt);
-   mysqli_stmt_close($stmt);
-   header ("location: ../daftar.php?error=none");
-   exit();
 }
