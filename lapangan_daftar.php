@@ -12,9 +12,10 @@ session_start();
 
    $result = mysqli_query($conn, "SELECT *
    FROM resepsionis_masuk r
-   RIGHT JOIN gudang_masuk g 
-   ON r.idPelanggan = g.idPelanggan
-   ORDER BY g.jatuhTempo ");
+   JOIN gudang_masuk gm ON r.idPelanggan = gm.idPelanggan
+   JOIN gudang_barang gb ON gm.idBarang = gb.idBarang 
+   ORDER BY gb.jatuhTempo ASC");
+
    ?>
    <div class="col-md-10 p-5 pt-2">
       <h3><i class="fas fa-boxes mr-2"></i> DAFTAR BARANG</h3>

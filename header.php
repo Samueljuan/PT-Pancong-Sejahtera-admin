@@ -138,9 +138,8 @@ session_start();
                         <i class="fas fa-boxes mr-2 p-auto"></i>Daftar Keluar
                      </button>
                      <ul class="dropdown-menu dropdown-menu-dark bg-secondary" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item " href="admin_daftar_gudang.php">Daftar Barang Gudang</a></li>
-                        <li><a class="dropdown-item" href="admin_daftar_resep.php">Daftar Barang Resepsionis</a></li>
-                        <li><a class="dropdown-item" href="admin_barang.php">Daftar Barang</a></li>
+                        <li><a class="dropdown-item " href="admin_keluar_gudang.php">Daftar Keluar Gudang</a></li>
+                        <li><a class="dropdown-item" href="admin_keluar_resep.php">Daftar Keluar Resepsionis</a></li>
                      </ul>
                      <hr class="bg-secondary">
                   </div>

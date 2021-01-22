@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
       if ($stmt2 == 1) {
          header("location: ../resep_masuk.php?error=none");
       } else {
-         $sql3 = "DELETE FROM resepsionis_masuk WHERE idPelanggan='$IDpelanggan'";
+         $sql3 = "DELETE * FROM resepsionis_masuk WHERE idPelanggan='$IDpelanggan'";
          $stmt3 = mysqli_query($conn, $sql3);
       }
    } else {

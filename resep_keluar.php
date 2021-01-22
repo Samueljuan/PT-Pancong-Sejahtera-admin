@@ -23,8 +23,16 @@ session_start();
             echo "<div class='alert alert-danger' role='alert'>
                   Ada yang Salah! Coba Lagi!
                 </div>";
-         }
-      }
+         } else if ($_GET["error"] == "notPelBar") {
+            echo "<div class='alert alert-danger' role='alert'>
+                  ID Pelanggan atau ID Barang Salah!
+                </div>";
+      } else if ($_GET["error"] == "barangLunas") {
+         echo "<div class='alert alert-danger' role='alert'>
+               Barang Telah Diambil! Tidak Dapat Melakukan Input Lagi!
+             </div>";
+   }
+   }
       ?>
       <form class="pt-3 bg-white" method="POST" action="includes/resep_keluar.inc.php">
          <div class="row form-group">

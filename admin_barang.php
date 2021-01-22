@@ -12,8 +12,8 @@ session_start();
 
    $result = mysqli_query($conn, "SELECT *
    FROM resepsionis_masuk r
-   JOIN gudang_masuk g 
-   ON r.idPelanggan = g.idPelanggan");
+   JOIN gudang_masuk gm ON r.idPelanggan = gm.idPelanggan
+   JOIN gudang_barang gb ON gm.idBarang = gb.idBarang");
    
    ?>
    <div class="col-md-10 p-5 pt-2">

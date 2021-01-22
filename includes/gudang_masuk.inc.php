@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
    $idPegawai = $_POST["idPegawai"];
    $kodeGudang = $_POST["kodeGudang"];
 
-   $sql1 = "INSERT INTO gudang_masuk (idPelanggan, idBarang , namaBarang, tanggalMasuk, jatuhTempo, idPegawai, kodeGudang) VALUES ('$IDpelanggan', '$IDbarang', '$namaBarang', '$tglMasuk', '$jatuhTempo', '$idPegawai', '$kodeGudang')";
+   $sql1 = "INSERT INTO gudang_masuk (idPelanggan, idBarang , idPegawai) VALUES ('$IDpelanggan', '$IDbarang', '$idPegawai')";
    $stmt1= mysqli_query($conn, $sql1) or die(mysqli_error($conn));
    if ($stmt1==1){
       $sql2 = "INSERT INTO gudang_barang(idBarang, namaBarang, kodeGudang, tanggalMasuk, jatuhTempo) VALUES ('$IDbarang', '$namaBarang', '$kodeGudang', '$tglMasuk', '$jatuhTempo')";
