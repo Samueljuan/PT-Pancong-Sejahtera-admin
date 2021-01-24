@@ -39,10 +39,10 @@ session_start();
                <?php
                if ($_SESSION["usersStatus"] == 'admin') {
                ?>
-                  <a href="https://www.gmail.com" target="_blank">
+                  <a href="#" target="_blank">
                      <i class="fa-1x fas fa-envelope-open-text btn" title="Surat Masuk"></i>
                   </a>
-                  <a href="https://www.gmail.com" target="_blank">
+                  <a href="#" target="_blank">
                      <i class="fa-1x fas fa-bell btn" title="Panggil "></i>
                   </a>
                   <a href="includes/logout.inc.php">
@@ -51,7 +51,7 @@ session_start();
                <?php
                } else if ($_SESSION["usersStatus"] == 'resepsionis') {
                ?>
-                  <a href="https://www.gmail.com" target="_blank">
+                  <a href="#" target="_blank">
                      <i class="fa-1x fas fa-bell btn" title="Panggil"></i>
                   </a>
                   <a href="includes/logout.inc.php">
